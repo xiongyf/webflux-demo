@@ -1,5 +1,6 @@
-package com.kevin.webfluxdemo.example.handler;
+package com.kevin.webfluxdemo.sys.handler;
 
+import com.kevin.webfluxdemo.sys.pojo.User;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -11,7 +12,11 @@ import reactor.core.publisher.Mono;
 public class CityHandler {
     public Mono<ServerResponse> helloCity(ServerRequest request) {
         System.out.println("CityHandler");
+        Mono<User> mono=request.bodyToMono(User.class);
+        System.out.println(mono);
         return ServerResponse.ok().contentType(MediaType.TEXT_PLAIN)
                 .body(BodyInserters.fromObject("Hello, City!"));
     }
+
+
 }
