@@ -2,6 +2,7 @@ package com.kevin.webfluxdemo.testsample;
 
 
 import com.kevin.webfluxdemo.sys.pojo.User;
+import com.kevin.webfluxdemo.utils.ListUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -42,32 +43,12 @@ public class TestClazz {
     @Test
     public void extract() {
         List<String> strings = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
+        for (int i = 1; i <= 22; i++) {
             strings.add(i + "");
         }
-        System.out.println(extractList(strings, 11, 20));
+        System.out.println(ListUtils.pagingList(strings, -6, 50));
     }
 
-    public List extractList(List list, int start, int num) {
-        if (list == null || list.size() < 1) {
-            return null;
-        }
-        int size = list.size();
-        if (size < num) {
-            return list;
-        }
-        List subList = new ArrayList();
-        if (start + num < size) {
-            for (int i = start - 1; i < start + num - 1; i++) {
-                subList.add(list.get(i));
-            }
-        } else {
-            for (int i = start - 1; i < list.size(); i++) {
-                subList.add(list.get(i));
-            }
-        }
 
-        return subList;
-    }
 
 }
