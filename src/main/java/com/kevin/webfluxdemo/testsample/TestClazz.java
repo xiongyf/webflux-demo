@@ -12,8 +12,8 @@ public class TestClazz {
 
     public void lambadaTest() {
 
-        LambadaInterface lambadaInterface = name -> System.out.println("Hello, " + name);
-        lambadaInterface.hello("Tom");
+        LambdaInterface lambdaInterface = name -> System.out.println("Hello, " + name);
+        lambdaInterface.hello("Tom");
 
         test2((name -> System.out.println("Hello, " + name)));
 
@@ -23,7 +23,7 @@ public class TestClazz {
         }).start();
     }
 
-    public void test2(LambadaInterface lambadaInterface) {
+    public void test2(LambdaInterface lambadaInterface) {
         lambadaInterface.hello("Victoria");
     }
 
