@@ -4,6 +4,8 @@ import com.kevin.webfluxdemo.sys.pojo.User;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -38,9 +40,9 @@ public class UserController {
      *      }
      */
 
-    @PostMapping("/hello")
-    public Mono<String> postHello(@RequestBody User user ) {
+    @PostMapping("/add")
+    public Mono<String> add(@RequestBody @Valid User user ) {
         System.out.println(user);
-        return Mono.just("Welcome to reactive world ~");
+        return Mono.just("User added");
     }
 }
